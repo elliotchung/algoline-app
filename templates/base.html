@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype2</title>
+    <div id="my-data" data-list="{{ rows }}"></div>
+    <div id="my-daily-data" daily-data-list="{{ daily_rows }}"></div>
+    <div id="my-high-trendlines" high-trendlines-data-list="{{ high_trendlines_final }}"></div>
+    <div id="my-low-trendlines" low-trendlines-data-list="{{ low_trendlines_final }}"></div>
+</head>
+<body>
+    <h2>{{ ticker }} - {{ desc }}</h2>
+    <p> 
+        <form method="POST">
+            <input type="text" name="ticker", id="tickerInput" placeholder="Enter ticker">
+            <button type="submit">Submit</button>
+        </form>
+        <input type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue" checked onchange="handleCheckboxChange()">
+        <label for="myCheckbox">AlgoLine</label>      
+    </p>
+    <div id="timeIntervalSelectorDaily"></div>
+    <div id="dailyChart"></div>
+    <div id="timeIntervalSelectorFivemin"></div>
+    <div id="fiveminChart"></div>
+</body>
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/chartSize.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/dailyChart.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/fiveminChart.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/textBehaviour.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/timeframeSelect.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/algoLine.js') }}"></script>
+</html>
